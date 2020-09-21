@@ -20,6 +20,7 @@ Additional description about the project and its features.
 - Create controller user new create
 - Create session controller
 - Create controller sessions new create login welcome
+- Add sessions#welcome view
 
 ## Live Demo
 
