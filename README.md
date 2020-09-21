@@ -14,7 +14,7 @@ Additional description about the project and its features.
 
 ## Milestones
 
-# Milestone1 Log in Users
+# Milestone1 Login
 
 - Create model user name
 - Create controller user new create
