@@ -5,11 +5,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    unless !User.find_by(username: params[:name])
-      @user = User.new(params.require(:user).permit(:name))
-      session[:user_id] = @user.id
-    end 
-    
-    redirect_to '/welcome'
+    @user = User.create(params.require(:user).permit(:name))
+    session[:user_id] = @user.id
+    redirect_to '/'
  end
 end

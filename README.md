@@ -8,9 +8,8 @@ Additional description about the project and its features.
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
+- Ruby on Rails,
+- Bootstrap,
 
 ## Milestones
 
@@ -19,8 +18,13 @@ Additional description about the project and its features.
 - Create model user name
 - Create controller user new create
 - Create session controller
-- Create controller sessions new create login welcome
-- Add sessions#welcome view
+- Create controller sessions new create login transactions
+- Add sessions#transactions view
+- Add sessions#new' view
+- Add sessions#create' view
+- Add bootstrap
+
+* Helper for login buttons
 
 ## Live Demo
 
@@ -61,7 +65,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues and feature requests are transactions!
 
 Feel free to check the [issues page](issues/).
 

@@ -16,8 +16,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get welcome" do
-    get sessions_welcome_url
+  test "should get transactions" do
+    get sessions_transactions_url
     assert_response :success
   end
 
