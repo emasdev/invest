@@ -1,6 +1,8 @@
-<h1>Sign Up</h1>
+<h1>Create user</h1>
 <%= form_for @user do |f|%>
-  <%= f.label :name%><br>
-  <%= f.text_field :name%><br>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :name%>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <%= f.submit 'Create' ,class: "btn btn-primary" %>
 <%end%>

@@ -1,2 +1,12 @@
-<h1>Transactions#new</h1>
-<p>Find me in app/views/transactions/new.html.erb</p>
+<h1>Create transaction</h1>
+<%= form_for @transaction do |f|%>
+  <div class="form-group">
+    <%= f.label :name%>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+    <div class="form-group">
+    <%= f.label :amount %>
+    <%= f.number_field :amount, class: "form-control" %>
+  </div>
+  <%= f.submit 'Create' ,class: "btn btn-primary" %>
+<%end%>
