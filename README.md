@@ -18,13 +18,21 @@ Additional description about the project and its features.
 - Create model user name
 - Create controller user new create
 - Create session controller
-- Create controller sessions new create login transactions
+- Create controller sessions new create login
 - Add sessions#transactions view
 - Add sessions#new' view
 - Add sessions#create' view
 - Add bootstrap
+- Add logic for login buttons
+- Add user profile links
 
-* Helper for login buttons
+# Milestone2 Transactions
+
+- Create model transaction name amount
+- Create model group name icon
+- Add user/group/transaction relationships
+- Create controller group index new create
+- Create controller transaction index new create
 
 ## Live Demo
 

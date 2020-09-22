@@ -20,11 +20,4 @@ class SessionsController < ApplicationController
        redirect_to '/login', notice: 'User not found'
     end
   end
-
-  def transactions
-    
-  end
-
-  def page_requires_login
-  end
 end

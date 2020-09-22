@@ -38,9 +38,20 @@
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto">
           <% if logged_in? %>
-          <i class="fa fa-user" aria-hidden="true"></i>
+          <i class="fa fa-user-o" aria-hidden="true"></i>
           <li class="nav-item">
-            <%= link_to "#{current_user.name}", '/', class: "navbar-brand" %>
+            <%= current_user.name %>
+            <hr>
+          </li>
+          
+          <li class="nav-item">
+            <%= link_to "All my transactions", '/transactions', class: "navbar-brand" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "All my external transactions", '/transactions', class: "navbar-brand" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "All groups", '/groups', class: "navbar-brand" %>
           </li>
           <%end%>
         </ul>
@@ -50,8 +61,11 @@
   
       <div class="container-fluid">
         <% flash.each do |type, msg| %>
-        <div class="alert alert-info">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
           <%= msg %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <% end %>
         <%= yield %>
