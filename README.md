@@ -26,17 +26,13 @@ Additional description about the project and its features.
 - Add logic for login buttons
 - Add user profile links
 
-# Milestone2 Transactions
+# Milestone2 Groups
 
 - Create model transaction name amount
-- Create model group name icon
-- Add user/group/transaction relationships
+- Create model group name amount icon
+- Add user/group relationships
 - Create controller group index new create
-- Create controller transaction index new create
-- Add All groups views
-
-* Add All my transactions views
-* Add All my external transactions views
+- Add All groups views (index, new)
 
 ## Live Demo
 
