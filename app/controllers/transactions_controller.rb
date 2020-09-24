@@ -4,11 +4,15 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    @transaction = Transaction.new
+    @transaction = current_user.transactions.new
+    @groups = Group.all.sort_by_name
+    # @group_transaction = @transaction.group_transactions.build
   end
 
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = current_user.transactions.new(transaction_params)
+    @transaction.group_transactions = params[:group_transactions]
+
     if @transaction.save then
       redirect_to "/transactions", notice: 'Transaction has been created'
     else
@@ -20,5 +24,6 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:name, :amount)
+    # params.require(:transaction).permit(:name, :amount, :group_transactions[])
   end
 end

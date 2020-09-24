@@ -2,10 +2,10 @@
 <%= link_to "New Group", new_group_path, class: "btn btn-success" %>
 <hr>
 <div class="list-group">
-<% @groups.ordered_by_name.each do |group| %>
+<% @groups.sort_by_name.each do |group| %>
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between align-items-center">
-      <% if group.icon == "" then group.icon = "https://www.iconsdb.com/icons/preview/dark-gray/group-xxl.png" end%>
+      <% if group.icon == "" then group.icon = "http://via.placeholder.com/100" end%>
       <img src="<%= group.icon %>" width="100" height="100">
       <h5 class="mb-1"><%= group.name %></h5>
       <small class="text-muted"><%= group.created_at %></small>

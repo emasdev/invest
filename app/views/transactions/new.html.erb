@@ -1,12 +1,16 @@
 <h1>Create transaction</h1>
 <%= form_for @transaction do |f|%>
   <div class="form-group">
-    <%= f.label :name%>
+    <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
   </div>
     <div class="form-group">
     <%= f.label :amount %>
     <%= f.number_field :amount, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <label for="group-select">Group select (Optional)</label>
+    <%= select_tag 'group_transactions', options_for_select(@groups.collect{ |u| [u.name, u.id] }), include_blank: 'None', class: "form-control", multiple: true %>
   </div>
   <%= f.submit 'Create' ,class: "btn btn-primary" %>
 <%end%>

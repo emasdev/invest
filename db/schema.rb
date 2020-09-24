@@ -10,28 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_115035) do
+ActiveRecord::Schema.define(version: 2020_09_23_163405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "group_transactions", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "transaction_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_transactions_on_group_id"
+    t.index ["transaction_id"], name: "index_group_transactions_on_transaction_id"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.string "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
+    t.integer "author_id"
     t.string "name"
     t.decimal "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "author_id"
-    t.integer "user_id"
-    t.index ["author_id"], name: "index_transactions_on_author_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
@@ -39,7 +47,8 @@ ActiveRecord::Schema.define(version: 2020_09_22_115035) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "group_transactions", "groups"
+  add_foreign_key "group_transactions", "transactions"
 end

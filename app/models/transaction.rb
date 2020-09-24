@@ -1,7 +1,10 @@
 class Transaction < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  validates :amount, presence: true, numericality: { only_float: true }
+  validates :amount, presence: true
   
-  belongs_to :user
-  has_many :groups
+  belongs_to :author, class_name: 'User'
+  has_many :group_transactions
+  has_many :groups, through: :group_transactions
+
+  scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 end

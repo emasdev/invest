@@ -2,8 +2,9 @@ class Group < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :icon, format: { with: /.+\.(jpe?g|png)\z/, message: 'only JPEG,JPG and PNG are valid formats.' }, allow_blank: true
   
-  has_many :transactions
   belongs_to :user
+  has_many :group_transactions
+  has_many :transactions, through: :group_transactions
 
-  scope :ordered_by_name, -> { order(name: :asc) }
+  scope :sort_by_name, -> { order(name: :asc) }
 end

@@ -33,8 +33,10 @@ Additional description about the project and its features.
 - Add user/group/transaction relationships
 - Create controller group index new create
 - Create controller transaction index new create
-- Add groups views
-- Add transactions views
+- Add All groups views
+
+* Add All my transactions views
+* Add All my external transactions views
 
 ## Live Demo
 
