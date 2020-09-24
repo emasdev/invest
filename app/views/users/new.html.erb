@@ -1,8 +1,21 @@
-<h1>Create user</h1>
 <%= form_for @user do |f|%>
-  <div class="form-group">
-    <%= f.label :name%>
-    <%= f.text_field :name, class: "form-control" %>
+  <nav class="navbar navbar-primary py-3">
+    <div class="icon">
+      <%=link_to root_url do %>
+        <i class="fa fa-arrow-left"></i>
+      <%end%>
+    </div>
+    <div class="title">Register</div>
+    <div class="submit">
+      <%= f.button :submit do %>
+        <i class="fa fa-arrow-right"></i>
+      <% end %>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="form-group">
+      <%= f.label :name%>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
   </div>
-  <%= f.submit 'Create' ,class: "btn btn-primary" %>
 <%end%>
