@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+}
+
 .btn-primary {
   background-color: #3678c2;
 }
@@ -32,8 +36,10 @@
   .title {
     text-transform: uppercase;
   }
-  button {
+  button,
+  input {
     border: none;
     background-color: transparent;
+    color: white;
   }
 }

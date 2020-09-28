@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def login
+    
   end
 
   def logout
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(name: params[:name])
     if @user
        session[:user_id] = @user.id
-       redirect_to '/'
+       redirect_to '/profile'
     else
        redirect_to '/login', notice: 'User not found'
     end
