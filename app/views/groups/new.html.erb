@@ -1,13 +1,27 @@
-<h1>Create group</h1>
 <%= form_for @group do |f|%>
-  <div class="form-group">
-    <%= f.label :name%>
-    <%= f.text_field :name, class: "form-control" %>
+  <nav class="navbar navbar-primary py-3">
+    <div class="icon">
+      <%=link_to root_url do %>
+        <i class="fa fa-arrow-left"></i>
+      <%end%>
+    </div>
+    <div class="title">Create group</div>
+    <div class="submit">
+      <%= f.button :submit do %>
+        <i class="fa fa-arrow-right"></i>
+      <% end %>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="form-group">
+      <%= f.label :name%>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Icon (Optional)' %>
+      <%= f.url_field :icon, class: "form-control" %>
+      <small id="emailHelp" class="form-text text-muted">Insert URL of valid image (PNG/JPG/JPEG)</small>
+    </div>
+    <%=render "shared/errors" ,object:@group%>
   </div>
-  <div class="form-group">
-    <%= f.label 'Icon (Optional)' %>
-    <%= f.url_field :icon, class: "form-control" %>
-    <small id="emailHelp" class="form-text text-muted">Insert URL of valid image (PNG/JPG/JPEG)</small>
-  </div>
-  <%= f.submit 'Create' ,class: "btn btn-primary" %>
 <%end%>

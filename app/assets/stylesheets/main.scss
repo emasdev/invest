@@ -6,7 +6,7 @@ body {
   background-color: #3678c2;
 }
 
-.bg-secondary {
+.invest-bg-secondary {
   background-color: #60b524;
 }
 
@@ -41,5 +41,22 @@ body {
     border: none;
     background-color: transparent;
     color: white;
+  }
+}
+
+.add-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #60b524;
+  .btn {
+    width: 100%;
+    border: 1px solid white;
+    padding: 1rem;
+    border-radius: 0;
+    background-color: #60b524;
+    font-size: 1.5rem;
   }
 }

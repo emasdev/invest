@@ -17,5 +17,6 @@
       <%= f.label :name%>
       <%= f.text_field :name, class: "form-control" %>
     </div>
+    <%=render "shared/errors" ,object:@user%>
   </div>
 <%end%>
