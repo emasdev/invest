@@ -4,23 +4,29 @@ class User < ApplicationRecord
   has_many :groups
   has_many :investments, foreign_key: :author_id, dependent: :destroy
 
+  def my_investments
+    investments.includes(:groups).select { |a| a.groups.any? }
+  end
+
+  def my_external_investments
+    investments.includes(:groups).reject { |a| a.groups.any? }
+  end
+
   def investments_total_amount
     amount = 0
-    investments.each do |investment|
-      amount = investment.total_amount + amount
-    end
 
+    investments.includes(:groups).select do |i| 
+      this_amount = i.amount + amount
+      if i.groups.any? then
+        i.groups.each_with_index do |group, index|
+          if index > 0
+            amount = i.amount + this_amount
+          end
+        end
+      end
+      puts amount
+    end
     return amount
   end
 
-  def investments_with_group
-    with_group = []
-    investments.each do |investment|
-      if investment.groups.size > 0
-        with_group << investment
-      end
-    end
-
-    return with_group
-  end
 end

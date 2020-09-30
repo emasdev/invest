@@ -5,7 +5,8 @@ class Investment < ApplicationRecord
   scope :sort_by_recent, -> { order(created_at: :desc) }
 
   def total_amount
-    amount * groups.size
+    return amount * groups.size
   end
+
 
 end

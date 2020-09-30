@@ -1,6 +1,6 @@
 class InvestmentsController < ApplicationController
   def index
-    @investments = current_user.investments_with_group
+    @investments = current_user.my_investments
   end
   
   def new
