@@ -16,12 +16,16 @@
           <% if group.icon == "" then group.icon = "http://via.placeholder.com/100" end%>
             <img class="rounded-circle" src="<%= group.icon %>" width="100" height="100">
             <h5 class="mb-1"><%= group.name %></h5>
-            <small class="text-muted"><%= group.created_at %></small>
-          </div>
-        </a>
-      <% end %>
+            <div>
+              <p class="small">Goal</p>
+              <p><%= if group.goal then "$ #{group.goal}" else ' - ' end %></p>
+              </div>
+              <small class="text-muted"><%= group.created_at %></small>
+            </div>
+          </a>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="add-btn">
-    <%= link_to "New Group", new_group_path, class: "btn btn-success" %>
-  </div>
+    <div class="add-btn">
+      <%= link_to "New Group", new_group_path, class: "btn btn-success" %>
+    </div>
