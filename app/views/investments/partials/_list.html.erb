@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="list-group">
+    <% @investments.each do |investment| %>
+      <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <% if investment.groups[0].icon == "" then investment.groups[0].icon = "http://via.placeholder.com/100" end%>
+            <img class="rounded-circle" src="<%=  investment.groups[0].icon %>" width="100" height="100">
+            <div>
+              <h5 class="mb-1"><%= investment.name %></h5>
+              <p>
+                <% investment.groups.each_with_index do|group, index| %>
+                  <%= if index +1 < investment.groups.size then group.name + " |" else group.name end%>
+                  <% end %>
+                </p>
+              </div>
+              <div>
+                <h6 class="mb-1">Amount</h6>
+                <p><%= "$ #{investment.total_amount}"%></p>
+              </div>
+              <small class="text-muted"><%= investment.created_at %></small>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>

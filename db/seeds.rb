@@ -6,9 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 u = User.create(name: "Emanuel")
-g1 = u.groups.create(name: "Courses")
-g2 = u.groups.create(name: "Equipment")
+g1 = u.groups.create(name: "Courses", icon: "")
+g2 = u.groups.create(name: "Equipment", icon: "")
 groups = []
 groups << g1
 groups << g2
-i1 = u.investments.create(name: "Developing", amount:200, groups: groups) 
+i1 = u.investments.create(name: "Invest in developing", amount:200, groups: groups)
+groups = []
+groups << g1
+i1 = u.investments.create(name: "Pay computers", amount:100, groups: groups) 

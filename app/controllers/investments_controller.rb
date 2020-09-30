@@ -1,6 +1,6 @@
 class InvestmentsController < ApplicationController
   def index
-    @investments = Investment.all
+    @investments = current_user.investments_with_group
   end
   
   def new
@@ -10,6 +10,14 @@ class InvestmentsController < ApplicationController
   
   def create
     @investment = current_user.investments.new(investment_params)
+    groups = Array.new
+    params[:investment][:groups].each do |group_id|
+      if group_id != "" then
+        group = Group.find(group_id)
+        @investment.groups << group
+      end 
+    end
+    
     if @investment.save then
       redirect_to "/investments", notice: 'investment has been created'
     else
@@ -20,6 +28,6 @@ class InvestmentsController < ApplicationController
   private
   
   def investment_params
-    params.require(:investment).permit(:name, :amount, :groups)
+    params.require(:investment).permit(:name, :amount)
   end
 end
