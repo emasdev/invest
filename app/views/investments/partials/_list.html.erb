@@ -3,7 +3,7 @@
     <% @investments.each do |investment| %>
       <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between align-items-center">
-          <% if investment.groups[0].icon == "" then investment.groups[0].icon = "http://via.placeholder.com/100" end%>
+          <% if investment.groups[0].icon == "" then investment.groups[0].icon = "http://via.placeholder.com/100?text=invest+img" end%>
             <img class="rounded-circle" src="<%=  investment.groups[0].icon %>" width="100" height="100">
             <div>
               <h5 class="mb-1"><%= investment.name %></h5>

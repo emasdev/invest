@@ -6,4 +6,15 @@ class Group < ApplicationRecord
   has_and_belongs_to_many :investments
 
   scope :sort_by_name, -> { order(name: :asc) }
+
+  def goal_amount
+    goal = 0
+    investments.includes(:groups).select do |investment| 
+      if investment.groups.any? then
+        goal = investment.total_amount + goal
+      end
+    end
+    
+    return goal
+  end
 end
