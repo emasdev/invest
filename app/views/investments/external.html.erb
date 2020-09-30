@@ -1,0 +1,16 @@
+  <nav class="navbar navbar-primary py-3">
+  <div class="icon">
+    <%=link_to root_url do %>
+      <i class="fa fa-arrow-left"></i>
+    <%end%>
+  </div>
+  <div class="title">All external investments</div>
+  <div></div>
+</nav>
+<hr>
+<p class="container-fluid text-right ">Total Amount: <%= "$ #{current_user.external_investments_total_amount}"%></p>
+<hr>
+<%=render "investments/partials/external_list" ,object:@investments%>
+<div class="add-btn">
+  <%= link_to "New Investment", new_investment_path, class: "btn btn-success" %>
+</div>

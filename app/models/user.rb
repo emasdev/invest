@@ -29,4 +29,16 @@ class User < ApplicationRecord
     return amount
   end
 
+  def external_investments_total_amount
+    amount = 0
+
+    investments.includes(:groups).select do |i| 
+      if i.groups.none? then
+        amount = i.amount + amount
+      end
+      puts amount
+    end
+    return amount
+  end
+
 end

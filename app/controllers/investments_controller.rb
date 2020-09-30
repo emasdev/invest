@@ -24,6 +24,10 @@ class InvestmentsController < ApplicationController
       redirect_to "/investments/new", notice: @investment.errors.full_messages
     end
   end
+
+  def external
+    @investments = current_user.my_external_investments
+  end
   
   private
   
