@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+u = User.create(name: "Emanuel")
+g1 = u.groups.create(name: "Courses")
+g2 = u.groups.create(name: "Equipment")
+groups = []
+groups << g1
+groups << g2
+i1 = u.investments.create(name: "Developing", amount:200, groups: groups) 
