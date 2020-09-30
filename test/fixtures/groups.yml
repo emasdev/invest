@@ -2,8 +2,10 @@
 
 one:
   name: MyString
-  icon: MyString
+  amount: 9.99
+  user: one
 
 two:
   name: MyString
-  icon: MyString
+  amount: 9.99
+  user: two
