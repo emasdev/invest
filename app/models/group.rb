@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :icon, format: { with: /.+\.(jpe?g|png)\z/, message: 'only JPEG,JPG and PNG are valid formats.' }, allow_blank: true
   
   belongs_to :user
@@ -7,7 +7,7 @@ class Group < ApplicationRecord
 
   scope :sort_by_name, -> { order(name: :asc) }
 
-  def goal_amount
+  def goal_amount_2
     goal = 0
     investments.includes(:groups).select do |investment| 
       if investment.groups.any? then
@@ -16,5 +16,14 @@ class Group < ApplicationRecord
     end
     
     return goal
+  end
+
+  def goal_amount
+    invested = 0
+    investments.each do |investment|
+      invested = investment.amount + invested
+    end
+
+    return invested
   end
 end

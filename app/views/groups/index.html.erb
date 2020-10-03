@@ -11,7 +11,7 @@
 <div class="container-fluid">
   <div class="list-group">
     <% @groups.sort_by_name.each do |group| %>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <a href="<%= group_path(group.id)  %>" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between align-items-center">
           <% if group.icon == "" then group.icon = "http://via.placeholder.com/100?text=group+img" end%>
             <img class="rounded-circle" src="<%= group.icon %>" width="100" height="100">

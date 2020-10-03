@@ -1,4 +1,5 @@
 class InvestmentsController < ApplicationController
+  before_action :logged_in?
   def index
     @investments = current_user.my_investments
   end

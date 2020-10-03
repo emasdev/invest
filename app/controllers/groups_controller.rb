@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
+  before_action :logged_in?
   def index
-    @groups = Group.all
+    @groups = Group.all.includes([:investments])
   end
 
   def new
@@ -14,6 +15,11 @@ class GroupsController < ApplicationController
     else
       redirect_to "/groups/new", notice: @group.errors.full_messages
     end
+  end
+
+  def show
+    @group = Group.includes([:investments]).find(params[:id])
+    @investments = @group.investments.includes([:groups])
   end
 
   private

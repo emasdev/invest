@@ -7,11 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 u = User.create(name: "Emanuel")
 g1 = u.groups.create(name: "Courses", icon: "")
-g2 = u.groups.create(name: "Equipment", icon: "")
+g2 = u.groups.create(name: "Equipment", icon: "", goal: 1000)
 groups = []
 groups << g1
 groups << g2
 i1 = u.investments.create(name: "Invest in developing", amount:200, groups: groups)
 groups = []
 groups << g1
-i1 = u.investments.create(name: "Pay computers", amount:100, groups: groups) 
+i2 = u.investments.create(name: "Pay computers", amount:100, groups: groups)
+i3 = u.investments.create(name: "Non group investment for something", amount:300)

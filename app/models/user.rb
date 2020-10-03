@@ -16,15 +16,12 @@ class User < ApplicationRecord
     amount = 0
 
     investments.includes(:groups).select do |i| 
-      this_amount = i.amount + amount
       if i.groups.any? then
         i.groups.each_with_index do |group, index|
-          if index > 0
-            amount = i.amount + this_amount
-          end
+            amount = i.amount + amount
+            puts "#{i.amount} + #{amount}"
         end
       end
-      puts amount
     end
     return amount
   end
@@ -36,7 +33,6 @@ class User < ApplicationRecord
       if i.groups.none? then
         amount = i.amount + amount
       end
-      puts amount
     end
     return amount
   end
