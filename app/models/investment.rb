@@ -11,15 +11,4 @@ class Investment < ApplicationRecord
     return amount * groups.size
   end
 
-  # def total_amount
-  #   amount = 0
-  #   groups.includes(:investments).select do |g|
-  #     if g.investments.none? then
-  #       amount += 1
-  #     end
-  #   end 
-  #   return amount
-  # end
-
-
 end

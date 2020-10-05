@@ -30,7 +30,16 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'shoulda', '~> 4.0'
+end
+
+group :test do
+  gem 'capybara', '~> 3.33'
+  gem 'rspec'
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -41,14 +50,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
-  gem 'rspec-rails'
-  gem 'shoulda'
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  # Adds support for Capybara system testing and selenium driver  gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   
