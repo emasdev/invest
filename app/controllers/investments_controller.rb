@@ -12,15 +12,21 @@ class InvestmentsController < ApplicationController
   def create
     @investment = current_user.investments.new(investment_params)
     groups = Array.new
+    has_group = false
     params[:investment][:groups].each do |group_id|
       if group_id != "" then
         group = Group.find(group_id)
         @investment.groups << group
+        has_group = true
       end 
     end
     
     if @investment.save then
-      redirect_to "/investments", notice: 'investment has been created'
+      if has_group then
+        redirect_to "/investments"
+      else
+        redirect_to "/investments/external"
+      end
     else
       redirect_to "/investments/new", notice: @investment.errors.full_messages
     end
