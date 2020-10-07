@@ -15,26 +15,23 @@ class User < ApplicationRecord
   def investments_total_amount
     amount = 0
 
-    investments.includes(:groups).select do |i| 
-      if i.groups.any? then
-        i.groups.each_with_index do |group, index|
-            amount = i.amount + amount
-            puts "#{i.amount} + #{amount}"
-        end
+    investments.includes(:groups).select do |i|
+      next unless i.groups.any?
+
+      i.groups.each_with_index do |_group, _index|
+        amount = i.amount + amount
+        puts "#{i.amount} + #{amount}"
       end
     end
-    return amount
+    amount
   end
 
   def external_investments_total_amount
     amount = 0
 
-    investments.includes(:groups).select do |i| 
-      if i.groups.none? then
-        amount = i.amount + amount
-      end
+    investments.includes(:groups).select do |i|
+      amount = i.amount + amount if i.groups.none?
     end
-    return amount
+    amount
   end
-
 end

@@ -1,5 +1,4 @@
 class Investment < ApplicationRecord
-
   validates :name, presence: true
 
   belongs_to :author, class_name: 'User'
@@ -8,7 +7,6 @@ class Investment < ApplicationRecord
   scope :sort_by_recent, -> { order(created_at: :desc) }
 
   def total_amount
-    return amount * groups.size
+    amount * groups.size
   end
-
 end

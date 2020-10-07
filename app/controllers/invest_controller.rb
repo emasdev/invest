@@ -1,12 +1,8 @@
 class InvestController < ApplicationController
-
   before_action :logged_in?, except: %i[index]
   def index
-    if logged_in?
-      redirect_to '/profile'
-    end
+    redirect_to '/profile' if logged_in?
   end
 
-  def profile
-  end
+  def profile; end
 end

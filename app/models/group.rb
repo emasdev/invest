@@ -1,7 +1,9 @@
 class Group < ApplicationRecord
   validates :name, presence: true
-  validates :icon, format: { with: /.+\.(jpe?g|png)\z/, message: 'only JPEG,JPG and PNG are valid formats.' }, allow_blank: true
-  
+  validates :icon, format: { with: /.+\.(jpe?g|png)\z/,
+                             message: 'only JPEG,JPG and PNG are valid formats.' },
+                   allow_blank: true
+
   belongs_to :user
   has_and_belongs_to_many :investments
 
@@ -9,13 +11,11 @@ class Group < ApplicationRecord
 
   def goal_amount_2
     goal = 0
-    investments.includes(:groups).select do |investment| 
-      if investment.groups.any? then
-        goal = investment.total_amount + goal
-      end
+    investments.includes(:groups).select do |investment|
+      goal = investment.total_amount + goal if investment.groups.any?
     end
-    
-    return goal
+
+    goal
   end
 
   def goal_amount
@@ -24,6 +24,6 @@ class Group < ApplicationRecord
       invested = investment.amount + invested
     end
 
-    return invested
+    invested
   end
 end

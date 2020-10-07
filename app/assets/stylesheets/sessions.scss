@@ -1,3 +1,38 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.navbar-primary {
+  background-color: #3678c2;
+  color: white;
+  margin-bottom: 1rem;
+  i {
+    color: white;
+  }
+  .title {
+    text-transform: uppercase;
+  }
+  button,
+  input {
+    border: none;
+    background-color: transparent;
+    color: white;
+  }
+}
+
+.add-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #60b524;
+  .btn {
+    width: 100%;
+    border: 1px solid white;
+    padding: 1rem;
+    border-radius: 0;
+    background-color: #60b524;
+    font-size: 1.5rem;
+  }
+}
