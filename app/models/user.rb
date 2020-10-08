@@ -5,11 +5,11 @@ class User < ApplicationRecord
   has_many :investments, foreign_key: :author_id, dependent: :destroy
 
   def my_investments
-    investments.includes(:groups).select { |a| a.groups.any? }
+    investments.sort_by_recent.includes(:groups).select { |a| a.groups.any? }
   end
 
   def my_external_investments
-    investments.includes(:groups).reject { |a| a.groups.any? }
+    investments.sort_by_recent.includes(:groups).reject { |a| a.groups.any? }
   end
 
   def investments_total_amount
@@ -20,7 +20,6 @@ class User < ApplicationRecord
 
       i.groups.each_with_index do |_group, _index|
         amount = i.amount + amount
-        puts "#{i.amount} + #{amount}"
       end
     end
     amount
