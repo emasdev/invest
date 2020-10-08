@@ -1,14 +1,14 @@
 module InvestmentsHelper
   def show_groups(investment)
-    groups_text = ""
+    groups_text = ''
     investment.groups.each_with_index do |group, index|
-      if index +1 < investment.groups.size then 
-        groups_text += "#{group.name} |" 
-      else 
-        groups_text += group.name 
-      end
+      groups_text += if index + 1 < investment.groups.size
+                       "#{group.name} |"
+                     else
+                       group.name
+                     end
     end
 
-    return groups_text
+    groups_text
   end
 end

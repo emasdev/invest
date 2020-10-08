@@ -16,15 +16,15 @@ RSpec.describe 'Main Flow', type: :system do
         click_link 'New Group'
         fill_in('group[name]', with: 'test group')
         fill_in('group[goal]', with: 100)
-        find(".fa-arrow-right").click
+        find('.fa-arrow-right').click
 
         # create investment
-        find(".fa-arrow-left").click
+        find('.fa-arrow-left').click
         click_link 'All my investments'
         click_link 'New Investment'
         fill_in('investment[name]', with: 'test investment')
         fill_in('investment[amount]', with: 50)
-        find(".fa-arrow-right").click
+        find('.fa-arrow-right').click
       end
     end
   end
