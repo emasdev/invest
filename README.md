@@ -98,7 +98,7 @@ Open `http://localhost:3000/` in your browser.
 
 ## Authors
 
-👤 **Shubham Singh**
+👤 **Emanuel González Irigoyen**
 
 - Github: [@emasdev](https://github.com/emasdev)
 - Twitter: [@elemasss](https://twitter.com/elemass)
