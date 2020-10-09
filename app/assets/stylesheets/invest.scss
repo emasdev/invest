@@ -1,0 +1,48 @@
+// Place all the styles related to the invest controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+
+  .logo-title {
+    font-size: 5rem;
+    font-family: "Shadows Into Light", cursive;
+  }
+
+  .buttons-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .btn {
+    padding: 1rem 0;
+    width: 100%;
+  }
+}
+
+.profile {
+  background: linear-gradient(5deg, #3778c2 0%, #1b3095 100%);
+  color: white;
+  padding-top: 4rem;
+  padding-left: 1rem;
+
+  a {
+    color: white;
+    line-height: 2rem;
+    margin-left: 2rem;
+    border-bottom: 1px solid white;
+  }
+
+  .user {
+    width: 50%;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}

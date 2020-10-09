@@ -1,0 +1,31 @@
+  <nav class="navbar navbar-primary py-3">
+  <div class="icon">
+    <%=link_to root_url do %>
+      <i class="fa fa-arrow-left"></i>
+    <%end%>
+  </div>
+  <div class="title">All groups</div>
+  <div></div>
+</nav>
+<hr>
+<div class="container-fluid">
+  <div class="list-group">
+    <% @groups.sort_by_name.each do |group| %>
+      <a href="<%= group_path(group.id)  %>" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <% if group.icon == "" then group.icon = "http://via.placeholder.com/100?text=group+img" end%>
+            <img class="rounded-circle" src="<%= group.icon %>" width="100" height="100">
+            <h5 class="mb-1"><%= group.name %></h5>
+            <div>
+              <h6>Invested</h6>
+              <p><%= if group.goal then "$ #{group.goal_amount} of $ #{group.goal}" else "$ #{group.goal_amount}" end %></p>
+              </div>
+              <small class="text-muted"><%= group.created_at %></small>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="add-btn">
+      <%= link_to "New Group", new_group_path, class: "btn btn-success" %>
+    </div>

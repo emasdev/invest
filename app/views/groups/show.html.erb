@@ -1,0 +1,13 @@
+  <nav class="navbar navbar-primary py-3">
+  <div class="icon">
+    <%=link_to groups_url do %>
+      <i class="fa fa-arrow-left"></i>
+    <%end%>
+  </div>
+  <div class="title"><%= @group.name %></div>
+  <div></div>
+</nav>
+<hr>
+<p class="container-fluid text-right ">Total Amount: <%= "$ #{@group.goal_amount}"%></p>
+<hr>
+<%=render "groups/partials/investments_list" ,object:@investments%>

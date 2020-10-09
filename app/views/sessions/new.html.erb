@@ -1,0 +1,20 @@
+<%= form_tag '/login' do %>
+  <nav class="navbar navbar-primary py-3">
+    <div class="icon">
+      <%=link_to root_url do %>
+        <i class="fa fa-arrow-left"></i>
+      <%end%>
+    </div>
+    <div class="title">Login</div>
+    <div class="submit">
+      <%= submit_tag 'Login'%>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="form-group">
+      <%= label_tag :name%>
+      <%= text_field_tag :name, nil, class: "form-control" %>
+    </div>
+  </div>
+  <%=render "shared/errors" ,object:@user%>
+<%end%>
